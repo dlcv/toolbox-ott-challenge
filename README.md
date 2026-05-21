@@ -1,3 +1,13 @@
+# README.md
+
+## ¿Cómo ejecutar todo el proyecto?
+
+Ejecuta el comando `docker-compose up --build` desde la raíz del proyecto:
+
+Esto ejecutará dos imágenes de Docker, una para el *frontend* y otra para el *backend* que se encuentran en una red aislada entre ellos con el fin de evitar problemas de comunicación entre ambas imágenes.
+
+---
+
 # [v3] Full-stack JS - Toolbox code challenge
 
 # Challenge
@@ -177,7 +187,7 @@ Usando React + React Bootstrap se debe crear una pantalla similar a la que se mu
 * Un endpoint `GET /files/` que dé como respuesta la lista de archivos disponibles tal cual como se la muestra en el API Externa.
 * Agregar un filtro por query params para poder pedir los datos de un archivo especifico:
    `files/data?fileName=<Nombre del archivo>`
-* Usar StandarJS
+* Usar StandardJS
 
 ## Puntos opcionales para el *frontend*
 - Usar Redux

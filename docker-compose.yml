@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # --- BACKEND SERVICE ---
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: toolbox-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - challenge-network
+
+  # --- FRONTEND SERVICE (REACT + WEBPACK) ---
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: toolbox-frontend
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true 
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    networks:
+      - challenge-network
+
+# --- ISOLATED PRIVATE NETWORK ---
+networks:
+  challenge-network:
+    driver: bridge
