@@ -1,0 +1,25 @@
+body {
+  background-color: #ffffff;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+.simple-header {
+  background-color: #f25f5c;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  width: 100%;
+}
+
+.main-container {
+  padding-top: 20px;
+}
+
+.table th {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+  border-bottom: 2px solid #dee2e6 !important;
+}
