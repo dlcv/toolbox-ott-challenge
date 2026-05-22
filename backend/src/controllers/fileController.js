@@ -1,3 +1,4 @@
+const messages = require('../utils/messages')
 const fileService = require('../services/fileService')
 
 async function getFilesData (req, res) {
@@ -6,9 +7,9 @@ async function getFilesData (req, res) {
     const data = await fileService.getProcessedFiles(fileName)
     return res.status(200).json(data)
   } catch (error) {
-    console.error('Error en getFilesData Controller:', error.message)
+    console.error(`${messages.ERROR_CONTROLLER_GET_FILES_DATA_CATCHED}: ${error.message}`)
     return res.status(500).json({
-      error: 'Error interno del servidor al procesar los archivos'
+      error: messages.ERROR_INTERNAL_SERVER
     })
   }
 }
@@ -18,8 +19,8 @@ async function getRawFilesList (req, res) {
     const files = await fileService.getRawFilesList()
     return res.status(200).json(files)
   } catch (error) {
-    console.error('Error en getRawFilesList Controller:', error.message)
-    return res.status(500).json({ error: 'Error al obtener la lista de archivos' })
+    console.error(`${messages.ERROR_CONTROLLER_GET_RAW_FILES_LIST_CATCHED}: ${error.message}`)
+    return res.status(500).json({ error: messages.ERROR_LISTING_FILES })
   }
 }
 

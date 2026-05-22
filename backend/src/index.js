@@ -1,5 +1,6 @@
 const cors = require('cors')
 const express = require('express')
+const messages = require('./utils/messages')
 const fileController = require('./controllers/fileController')
 
 const app = express()
@@ -12,5 +13,5 @@ app.get('/files/data', fileController.getFilesData)
 app.get('/files/list', fileController.getRawFilesList)
 
 app.listen(PORT, () => {
-  console.log(`Servidor API corriendo en http://localhost:${PORT}`)
+  console.log(`${messages.SERVER_RUNNING} ${PORT}`)
 })

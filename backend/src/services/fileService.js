@@ -1,5 +1,6 @@
-const externalApi = require('../wrappers/externalApi')
+const messages = require('../utils/messages')
 const csvParser = require('../utils/csvParser')
+const externalApi = require('../wrappers/externalApi')
 
 async function processSingleFile (fileName) {
   try {
@@ -10,7 +11,7 @@ async function processSingleFile (fileName) {
     }
     return parsedData
   } catch (error) {
-    console.warn(`Error procesando archivo ${fileName}:`, error.message)
+    console.warn(`${messages.ERROR_SERVICE_PROCESSING_FILE_CATCHED} ${fileName}:`, error.message)
     return null
   }
 }

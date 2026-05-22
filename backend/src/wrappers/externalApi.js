@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const messages = require('../utils/messages')
 
 const BASE_URL = 'https://echo-serv.tbxnet.com/v1/secret'
 const HEADERS = {
@@ -14,11 +15,11 @@ async function fetchFileList () {
     })
 
     if (!response.ok) {
-      throw new Error(`Fallo al listar archivos. Status HTTP: ${response.status}`)
+      throw new Error(`${messages.ERROR_WRAPPER_FETCH_FILE_LIST_STATUS} [HTTP status ${response.status}]`)
     }
     return await response.json()
   } catch (error) {
-    console.error('Error de red en fetchFileList:', error.message)
+    console.error(`${messages.ERROR_WRAPPER_FETCH_FILE_LIST_CATCHED}:`, error.message)
     throw error
   }
 }
@@ -31,11 +32,11 @@ async function fetchFileContent (fileName) {
     })
 
     if (!response.ok) {
-      throw new Error(`Fallo al descargar ${fileName}. Status HTTP: ${response.status}`)
+      throw new Error(`${messages.ERROR_WRAPPER_FETCH_FILE_CONTENT_DOWNLOAD} ${fileName} [HTTP status ${response.status}]`)
     }
     return await response.text()
   } catch (error) {
-    console.error(`Error de red en fetchFileContent para ${fileName}:`, error.message)
+    console.error(`${messages.ERROR_WRAPPER_FETCH_FILE_CONTENT_CATCHED} ${fileName}:`, error.message)
     throw error
   }
 }
