@@ -1,6 +1,6 @@
 const { createStore, applyMiddleware } = require('redux')
 const thunk = require('redux-thunk').default
-const fileReducer = require('./reducer')
+const fileReducer = require('./fileReducer')
 
 const store = createStore(
   fileReducer,

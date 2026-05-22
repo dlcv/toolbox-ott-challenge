@@ -34,10 +34,17 @@
   },
   "devDependencies": {
     "jest": "^27.5.1",
+    "jsx-ast-utils": "^3.3.5",
     "standard": "^16.0.4",
     "supertest": "^6.3.3"
   },
   "jest": {
     "testEnvironment": "node"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
   }
 }
+

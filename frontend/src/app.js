@@ -29,25 +29,25 @@ function App () {
       Container,
       { className: 'main-container' },
       React.createElement(SearchBar, { onSearch: handleSearch }),
-      
+
       loading && React.createElement(
         'div',
         { className: 'text-center my-4' },
         React.createElement(Spinner, { animation: 'border', variant: 'danger' })
       ),
-      
+
       (!loading && error) && React.createElement(
         Alert,
         { variant: 'danger', className: 'text-center' },
         error
       ),
-      
+
       (!loading && !error && data.length === 0) && React.createElement(
         Alert,
         { variant: 'warning', className: 'text-center' },
         AppTexts.NO_FILES_FOUND
       ),
-      
+
       (!loading && !error && data.length > 0) && React.createElement(
         DataTable,
         { files: data }

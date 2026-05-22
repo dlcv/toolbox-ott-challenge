@@ -37,6 +37,9 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.2"
   },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "standard": {
     "env": [
       "browser",
@@ -47,3 +50,4 @@
     ]
   }
 }
+

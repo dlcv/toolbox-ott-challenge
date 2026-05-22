@@ -10,8 +10,6 @@ const RESET_BUTTON = 'Limpiar búsqueda'
 const LOADING_MESSAGE = 'Cargando archivos...'
 const ERROR_MESSAGE = 'Ocurrió un error al cargar los archivos. Por favor, inténtalo de nuevo.'
 
-
-
 module.exports = {
   APP_TITLE,
   NO_FILES_FOUND,

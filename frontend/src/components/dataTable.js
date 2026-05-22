@@ -3,7 +3,7 @@ const { Table } = require('react-bootstrap')
 const AppTexts = require('../utils/appTexts')
 
 function DataTable ({ files }) {
-  const rows = files.flatMap(fileObj => 
+  const rows = files.flatMap(fileObj =>
     fileObj.lines.map((line, index) => ({
       id: `${fileObj.file}-${index}`,
       fileName: fileObj.file,
@@ -31,7 +31,7 @@ function DataTable ({ files }) {
     React.createElement(
       'tbody',
       null,
-      rows.map(row => 
+      rows.map(row =>
         React.createElement(
           'tr',
           { key: row.id },
