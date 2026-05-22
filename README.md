@@ -13,7 +13,7 @@ francisco@dlcv.net.ve
    - Imágenes Docker que cumplen el requerimiento de NodeJS en su versión 14
    - Pruebas unitarias solo con Jest, por encima de Mocha o Chai; ya que sirve para ambas partes del proyecto
    - Textos no hardcodeado dentro de las funciones, se manejan en archivos separados para su mejor manipulación
-   - Se decidió para el proyecto *frontend* utilizar Babel, está prohibido para el proyecto *backend*; para facilitar el proyecto con React
+   - Se decidió para el proyecto *frontend* utilizar Babel, está prohibido para el proyecto *backend*; pero en el front evita mayores manualidades con React
    - Utilizado ES6+ con sus conceptos de `require` en vez de `import`, respetando consistencia del código en ambos proyectos cumpliendo normas de StandardJS
 
 ## Estructura del proyecto
