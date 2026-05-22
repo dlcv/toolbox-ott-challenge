@@ -95,7 +95,7 @@ Una vez Docker Compose termine de levantar las imágenes, los proyectos se estar
 
 1. Cambia al directorio del proyecto que deseas ejecutar (por ejemplo `cd frontend`)
 2. Ejecuta el comando `npm run start`
-3.
+3. Utiliza la ruta adecuada según el proyecto ejecutado
 
 ## ¿Cómo ejecutar las pruebas unitarias?
 
