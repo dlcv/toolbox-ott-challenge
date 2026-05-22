@@ -18,36 +18,66 @@ francisco@dlcv.net.ve
 
 ## Estructura del proyecto
 
-toolbox-ott-challenge/
-├── backend/                # Backend: API REST (NodeJS v14 con ExpressJS)
-│   ├── src/                # Código del proyecto
-│   │   ├── controllers/    # Lógica de enrutamiento
-│   │   ├── services/       # Lógica de negocio (procesamiento de archivo CSV)
-│   │   ├── utils/          # Funciones utilitarias (validaciones y mensajes)
-│   │   ├── wrappers/       # Capa de abstracción para fetch a la API externa
-│   │   └── index.js        # Punto de entrada
-│   ├── tests/              # Pruebas unitarias (Jest)
-│   ├── Dockerfile          # Configuración de la imagen a montar
-│   ├── .dockerignore       # Para no copiar archivos innecesarios al contenedor
-│   ├── .gitignore          # Para no enviar archivos innecesarios al repositorio
-│   └── package.json        # Configuración interna del proyecto
-├── frontend/               # Frontend: aplicación web (NodeJS v14 con React, Webpack y Redux)
-│   ├── public/             # HTML estático para renderizar la web
-│   ├── src/                # Código del proyecto
-│   │   ├── components/     # UI aislada (Atómica, sin lógica de negocio)
-│   │   ├── redux/          # Lógica de peticiones a backend (Separación de responsabilidades)
-│   │   ├── styles/         # Diseño (archivo CSS)
-│   │   ├── utils/          # Funciones utilitarias (mensajes de la UI)
-│   │   └── app.js          # Ensamblador de vistas
-│   │   └── index.js        # Punto de arranque con React
-│   ├── tests/              # Pruebas unitarias (Jest)
-│   ├── Dockerfile          # Configuración de la imagen a montar
-│   ├── .dockerignore       # Para no copiar archivos innecesarios al contenedor
-│   ├── .gitignore          # Para no enviar archivos innecesarios al repositorio
-│   └── package.json        # Configuración interna del proyecto
-└── docker-compose.yml      # Orquestador global del proyecto
-└── .gitignore              # Para no enviar archivos innecesarios al repositorio
-└── package.json            # Gestor de pruebas y linter para ambos proyectos
+toolbox-ott-challenge/  
+
+├── backend/                # Backend: API REST (NodeJS v14 con ExpressJS)  
+
+│   ├── src/                # Código del proyecto  
+
+│   │   ├── controllers/    # Lógica de enrutamiento  
+
+│   │   ├── services/       # Lógica de negocio (procesamiento de archivo CSV)  
+
+│   │   ├── utils/          # Funciones utilitarias (validaciones y mensajes)  
+
+│   │   ├── wrappers/       # Capa de abstracción para fetch a la API externa  
+
+│   │   └── index.js        # Punto de entrada  
+
+│   ├── tests/              # Pruebas unitarias (Jest)  
+
+│   ├── Dockerfile          # Configuración de la imagen a montar  
+
+│   ├── .dockerignore       # Para no copiar archivos innecesarios al contenedor  
+
+│   ├── .gitignore          # Para no enviar archivos innecesarios al repositorio  
+
+│   └── package.json        # Configuración interna del proyecto  
+
+├── frontend/               # Frontend: aplicación web (NodeJS v14 con React, Webpack y Redux)  
+
+│   ├── public/             # HTML estático para renderizar la web  
+
+│   ├── src/                # Código del proyecto  
+
+│   │   ├── components/     # UI aislada (Atómica, sin lógica de negocio)  
+
+│   │   ├── redux/          # Lógica de peticiones a backend (Separación de responsabilidades)  
+
+│   │   ├── styles/         # Diseño (archivo CSS)  
+
+│   │   ├── utils/          # Funciones utilitarias (mensajes de la UI)  
+
+│   │   └── app.js          # Ensamblador de vistas  
+
+│   │   └── index.js        # Punto de arranque con React  
+
+│   ├── tests/              # Pruebas unitarias (Jest)  
+
+│   ├── Dockerfile          # Configuración de la imagen a montar  
+
+│   ├── .dockerignore       # Para no copiar archivos innecesarios al contenedor  
+
+│   ├── .gitignore          # Para no enviar archivos innecesarios al repositorio  
+
+│   └── package.json        # Configuración interna del proyecto  
+
+└── docker-compose.yml      # Orquestador global del proyecto  
+
+└── .gitignore              # Para no enviar archivos innecesarios al repositorio  
+
+└── package.json            # Gestor de pruebas y linter para ambos proyectos  
+
 └── README.md               # Este archivo
 
 ## ¿Cómo ejecutar todo el proyecto?
