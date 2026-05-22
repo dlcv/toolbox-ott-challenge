@@ -1,10 +1,83 @@
-# README.md
+# Respuesta a Toolbox code challenge [v3] Full-stack JS
+
+Elaborado por Francisco De La Cruz
+francisco@dlcv.net.ve
+
+## Comentarios generales
+
+1. Utilizada una estructura monorepo que contiene separadamente las partes de *frontend* y *backend*
+2. Estos proyectos puede ser desacoplables: pueden ser separados y ejecutados independientemente con pocos ajustes
+3. Características destacadas:
+   - Docker Compose como orquestador de ambos proyectos
+   - Separación de responsabilidades según el tipo de proyecto
+   - Imágenes Docker que cumplen el requerimiento de NodeJS en su versión 14
+   - Pruebas unitarias solo con Jest, por encima de Mocha o Chai; ya que sirve para ambas partes del proyecto
+   - Textos no hardcodeado dentro de las funciones, se manejan en archivos separados para su mejor manipulación
+   - Se decidió para el proyecto *frontend* utilizar Babel, está prohibido para el proyecto *backend*; para facilitar el proyecto con React
+   - Utilizado ES6+ con sus conceptos de `require` en vez de `import`, respetando consistencia del código en ambos proyectos cumpliendo normas de StandardJS
+
+## Estructura del proyecto
+
+toolbox-ott-challenge/
+├── backend/                # Backend: API REST (NodeJS v14 con ExpressJS)
+│   ├── src/                # Código del proyecto
+│   │   ├── controllers/    # Lógica de enrutamiento
+│   │   ├── services/       # Lógica de negocio (procesamiento de archivo CSV)
+│   │   ├── utils/          # Funciones utilitarias (validaciones y mensajes)
+│   │   ├── wrappers/       # Capa de abstracción para fetch a la API externa
+│   │   └── index.js        # Punto de entrada
+│   ├── tests/              # Pruebas unitarias (Jest)
+│   ├── Dockerfile          # Configuración de la imagen a montar
+│   ├── .dockerignore       # Para no copiar archivos innecesarios al contenedor
+│   ├── .gitignore          # Para no enviar archivos innecesarios al repositorio
+│   └── package.json        # Configuración interna del proyecto
+├── frontend/               # Frontend: aplicación web (NodeJS v14 con React, Webpack y Redux)
+│   ├── public/             # HTML estático para renderizar la web
+│   ├── src/                # Código del proyecto
+│   │   ├── components/     # UI aislada (Atómica, sin lógica de negocio)
+│   │   ├── redux/          # Lógica de peticiones a backend (Separación de responsabilidades)
+│   │   ├── styles/         # Diseño (archivo CSS)
+│   │   ├── utils/          # Funciones utilitarias (mensajes de la UI)
+│   │   └── app.js          # Ensamblador de vistas
+│   │   └── index.js        # Punto de arranque con React
+│   ├── tests/              # Pruebas unitarias (Jest)
+│   ├── Dockerfile          # Configuración de la imagen a montar
+│   ├── .dockerignore       # Para no copiar archivos innecesarios al contenedor
+│   ├── .gitignore          # Para no enviar archivos innecesarios al repositorio
+│   └── package.json        # Configuración interna del proyecto
+└── docker-compose.yml      # Orquestador global del proyecto
+└── .gitignore              # Para no enviar archivos innecesarios al repositorio
+└── package.json            # Gestor de pruebas y linter para ambos proyectos
+└── README.md               # Este archivo
 
 ## ¿Cómo ejecutar todo el proyecto?
 
 Ejecuta el comando `docker-compose up --build` desde la raíz del proyecto:
 
-Esto ejecutará dos imágenes de Docker, una para el *frontend* y otra para el *backend* que se encuentran en una red aislada entre ellos con el fin de evitar problemas de comunicación entre ambas imágenes.
+Este comando ejecutará un contenedor con dos imágenes de Docker, una para el *frontend* y otra para el *backend*; que se encuentran en una red aislada entre ellas con el fin de evitar problemas de comunicación entre ambas imágenes.
+
+Una vez Docker Compose termine de levantar las imágenes, los proyectos se estarán ejecutando localmente en las siguientes rutas:
+
+- [Frontend:](http://localhost:8080/) http://localhost:8080/
+- [Backend:](http://localhost:3000/) http://localhost:3000/
+
+## ¿Cómo ejecutar solo una parte del proyecto (*frontend* o *backend*)?
+
+1. Cambia al directorio del proyecto que deseas ejecutar (por ejemplo `cd frontend`)
+2. Ejecuta el comando `npm run start`
+3.
+
+## ¿Cómo ejecutar las pruebas unitarias?
+
+Ejecuta el comando `npm run test` desde la raíz del proyecto:
+
+Este comando ejecutará las pruebas unitarias de ambos componentes del proyecto (*frontend* y *backend*) en una sola ejecución. También puedes cambiar de carpeta (`cd frontend` o `cd backend`) y ejecutando el mismo comando (`npm run test`) ejecutar las pruebas solo de esa carpeta.
+
+## ¿Cómo ejecutar lint en todo el proyecto?
+
+Ejecuta el comando `npm run lint` o `npm run lint:fix` desde la raíz del proyecto:
+
+El primer comando hará una revisión del código y mostrará el resultado del mismo, el segundo comando hará la misma revisión y corregirá automáticamente los problemas de linter que sean hallados.
 
 ---
 
